@@ -1,5 +1,9 @@
 describe("Clock", function() {
 
+  it("should pass", function() {
+    expect(true).toBe(true);
+  });
+
   it("does not replace setTimeout until it is installed", function() {
     var fakeSetTimeout = jasmine.createSpy("global setTimeout"),
       fakeGlobal = { setTimeout: fakeSetTimeout },
