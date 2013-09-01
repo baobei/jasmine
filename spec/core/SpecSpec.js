@@ -36,7 +36,6 @@ describe("Spec", function() {
 
   it("should call the start callback on execution", function() {
     var fakeQueueRunner = jasmine.createSpy('fakeQueueRunner'),
-      beforesWereCalled = false,
       startCallback = jasmine.createSpy('startCallback'),
       spec = new j$.Spec({
         id: 123,
@@ -46,6 +45,7 @@ describe("Spec", function() {
         queueRunner: fakeQueueRunner
       });
 
+    jasmine.getEnv().clock.install(); // TODO: Fix this workaround for IE8
     spec.execute();
 
     expect(startCallback).toHaveBeenCalledWith(spec);
